@@ -12,11 +12,16 @@ services:
     #image: jasonrivers/nagios:latest
     build: .
     logging: *default-logging
+    
     environment:
     - MAIL_RELAY_HOST=127.0.0.1
+    
     volumes:
     - /docker/nagios/etc:/opt/nagios/etc
     - /docker/nagios/var:/opt/nagios/var
     - /docker/nagios/customplugins:/opt/Custom-Nagios-Plugins
     - /docker/nagios/nagiosgraphvar:/opt/nagiosgraph/var
     - /docker/nagios/nagiosgraphetc:/opt/nagiosgraph/etc
+    
+    ports:
+    - "8082:80"
