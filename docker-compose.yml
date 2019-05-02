@@ -11,6 +11,7 @@ services:
   nagios:
     #image: jasonrivers/nagios:latest
     build: .
+    logging: *default-logging
     environment:
     - MAIL_RELAY_HOST=127.0.0.1
     volumes:
